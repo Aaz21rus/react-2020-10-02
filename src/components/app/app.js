@@ -14,6 +14,6 @@ export default class App extends PureComponent {
   }
 }
 
-App.protoTypes = {
-  restaurants: PropTypes.arrayOf(PropTypes.object),
+App.propTypes = {
+  restaurants: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

@@ -6,8 +6,6 @@ import MinusIcon from './icons/minus.svg';
 import PlusIcon from './icons/plus.svg';
 import { decrement, increment } from '../../redux/action';
 
-// import counter from '../../hocs/counter';
-
 const Product = ({ product, amount, increment, decrement, fetchData }) => {
   useEffect(() => {
     fetchData && fetchData(product.id);
@@ -63,7 +61,6 @@ Product.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   amount: state.order[ownProps.product.id] || 0,
-  // amount: state.order,
 });
 
 const mapDispatchToProps = {
@@ -71,10 +68,9 @@ const mapDispatchToProps = {
   increment,
 };
 
-// const mapDispatchToProps = dispatch => ({
+// const mapDispatchToProps = (dispatch) => ({
 //   decrement: () => dispatch(decrement()),
 //   increment: () => dispatch(increment()),
-// })
+// });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
-// export default counter(Product);

@@ -2,16 +2,16 @@ import React from 'react';
 
 import Rate from '../../rate';
 import styles from './review.module.css';
-import PropTypes, { shape } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Review = ({ user, text, rating }) => (
   <div className={styles.review} data-id="review">
-    <div className={styles.content} data-id="content">
+    <div className={styles.content}>
       <div>
-        <h4 className={styles.name} data-id="name">
+        <h4 className={styles.name} data-id="review-user">
           {user}
         </h4>
-        <p className={styles.comment} data-id="text">
+        <p className={styles.comment} data-id="review-text">
           {text}
         </p>
       </div>
@@ -23,12 +23,13 @@ const Review = ({ user, text, rating }) => (
 );
 
 Review.propTypes = {
-  review: shape({
-    id: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired,
-  }),
+  user: PropTypes.string,
+  text: PropTypes.string,
+  rating: PropTypes.number.isRequired,
+};
+
+Review.defaultProps = {
+  user: 'Anonymous',
 };
 
 export default Review;
